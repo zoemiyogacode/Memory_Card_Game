@@ -10,6 +10,7 @@
  let moves = 0;
  let movesTracker = document.querySelector(".moves");
  let matchedCards = [];
+ let clock = document.querySelector(".clock");
 
  /*
  * @description Start the game function
@@ -75,7 +76,7 @@ function openCard() {
 	openedCards.push(this);
 	if(openedCards.length === 2) {
 		moveCounter();
-		if(openedCards[0].innerHTML === openedCards[1].innerHTML) {
+		if(openedCards[0].innerHTML !== openedCards[1].innerHTML || openedCards[0].isSameNode(openedCards[1])) {
 			matched();
 		} else {
 			unmatched();
