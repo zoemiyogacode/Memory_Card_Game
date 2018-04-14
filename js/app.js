@@ -97,8 +97,21 @@ function openCard() {
  */
 
 function matched() {
-	 openedCards[0].classList.toggle('match');
-	 openedCards[1].classList.toggle('match');
-	 openedCards[0].classList.toggle('locked');
-	 openedCards[1].classList.toggle('match');
+	 openedCards[0].classList.add('match', 'locked');
+	 openedCards[1].classList.add('match', 'locked');
+	 openedCards[0].classList.remove('show', 'open');
+	 openedCards[1].classList.remove('show', 'open');
+	 openedCards = [];
 }
+
+/*
+ * @description Unmatch cards and flip them back again
+ */
+
+ function unmatched() {
+ 	setTimeout(function() {
+ 		openedCards[0].classList.remove('show', 'open');
+ 		openedCards[1].classList.remove('show', 'open');
+ 		openedCards = [];
+	},600);
+ }
