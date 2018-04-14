@@ -8,6 +8,7 @@
  let shuffledCards = [];
  let openedCards = [];
  let moves = 0;
+ let movesTracker = document.querySelector(".moves")
 
  /*
  * @description Start the game function
@@ -64,7 +65,8 @@ function shuffle(array) {
 
 for (let i = 0; i < cards.length; i++) {
 	card = cards[i];
-	card.addEventListener('click', displayCard, openCard);
+	card.addEventListener('click', displayCard);
+	card.addEventListener('click', openCard);
 }
 
 /*
@@ -93,9 +95,14 @@ function openCard() {
 };
 
  /*
- * @description Move the counter
+ * @description Move the counter func
  */
 
  function moveCounter() {
  	moves++
+ 	movesTracker.innerHTML = moves;
  }
+
+/*
+ * @description Move the counter func
+ */
