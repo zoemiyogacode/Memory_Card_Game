@@ -107,3 +107,7 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.deck .card.locked {
+    pointer-events: none;
+}
