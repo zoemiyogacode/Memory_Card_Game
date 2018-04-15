@@ -74,11 +74,9 @@ function displayCard() {
 
 function openCard() {
 	openedCards.push(this);
-	const open1 = openedCards[0];
-	const open2 = openedCards[1]; 
 	if(openedCards.length === 2) {
 		moveCounter();
-		if(open1.innerHTML !== open2.innerHTML || open1.isSameNode(open2)) {
+		if(openedCards[0].innerHTML === openedCards[1].innerHTML) {
 			matched();
 		} else {
 			unmatched();
