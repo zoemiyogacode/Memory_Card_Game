@@ -11,6 +11,9 @@
  let movesTracker = document.querySelector(".moves");
  let matchedCards = [];
  let clock = document.querySelector(".clock");
+ let min = 0;
+ let sec = 0;
+ let interval;
 
  /*
  * @description Start the game function
@@ -87,12 +90,15 @@ function openCard() {
  function moveCounter() {
  	moves++
  	movesTracker.innerHTML = moves;
+ 	if(moves === 1) {
+ 		startClock();
+ 	}
  }
 
 /*
  * @description Check if clicked card is not the same and match if has the same symbol
  */
- 
+
  function checkCards() {
 	let cardItem1 = openedCards[0].getElementsByTagName('i')[0];
 	let cardItem2 = openedCards[1].getElementsByTagName('i')[0];
@@ -143,6 +149,7 @@ function matched() {
 /*
  * @description Unlocking not matched cards
  */
+
 function unlock() {
 	Array.prototype.filter.call(cards, function(card) {
 		card.classList.remove('locked');
@@ -150,4 +157,23 @@ function unlock() {
 			matchedCards[i].classList.add("locked");
 		}
 	});
+}
+ 	
+
+/*
+ * @description Start counting the time 
+ */
+
+function startClock() {
+ interval = setInterval(function() {
+ 	clock.innerHTML = "in: " + min + "min " + sec + "sec";
+ 	sec++;
+ 	if(sec === 60) {
+ 		min++
+ 		sec = 0;
+ 	} else if(min === 60){
+ 		min = 0;
+ 		sec = 0;
+ 	} 
+ }, 1000);
 }
