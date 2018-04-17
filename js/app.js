@@ -73,16 +73,12 @@ function displayCard() {
  */
 
 function openCard() {
-	openedCards.push(this);
+	openedCards.push(this);	
 	if(openedCards.length === 2) {
 		moveCounter();
-		if(openedCards[0].innerHTML === openedCards[1].innerHTML) {
-			matched();
-		} else {
-			unmatched();
-		}
+		checkCards();
 	}
-};
+}
 
  /*
  * @description Move the counter func
@@ -92,6 +88,19 @@ function openCard() {
  	moves++
  	movesTracker.innerHTML = moves;
  }
+
+/*
+ * @description Check if clicked card is not the same and if has the same symbol
+ */
+ function checkCards() {
+	let cardItem1 = openedCards[0].getElementsByTagName('i')[0];
+	let cardItem2 = openedCards[1].getElementsByTagName('i')[0];
+	let notSameCard = openedCards[0].getAttribute('id') !== openedCards[1].getAttribute('id');
+	let sameSymbol = cardItem1.getAttribute('class') === cardItem2.getAttribute('class');
+	if (notSameCard && sameSymbol) {
+	matched();
+	} else unmatched();
+}
 
 /*
  * @description Match the cards
