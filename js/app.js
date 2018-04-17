@@ -76,7 +76,7 @@ function openCard() {
 	openedCards.push(this);
 	if(openedCards.length === 2) {
 		moveCounter();
-		if(openedCards[0].innerHTML === openedCards[1].innerHTML) {
+		if(openedCards[0].innerHTML != openedCards[1].innerHTML || openedCards[0].isSameNode(openedCards[1])) {
 			matched();
 		} else {
 			unmatched();
