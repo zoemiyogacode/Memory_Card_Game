@@ -6,6 +6,8 @@
  let cards = [...card];
  let deck = document.querySelector(".deck");
  let shuffledCards = [];
+ let click1 = [];
+ let click2; = [];
  let openedCards = [];
  let moves = 0;
  let movesTracker = document.querySelector(".moves");
@@ -76,7 +78,7 @@ function openCard() {
 	openedCards.push(this);
 	if(openedCards.length === 2) {
 		moveCounter();
-		if(openedCards[0].innerHTML != openedCards[1].innerHTML || openedCards[0].isSameNode(openedCards[1])) {
+		if(openedCards[0].innerHTML !== openedCards[1].innerHTML) {
 			matched();
 		} else {
 			unmatched();
