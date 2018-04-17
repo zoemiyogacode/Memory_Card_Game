@@ -90,8 +90,9 @@ function openCard() {
  }
 
 /*
- * @description Check if clicked card is not the same and if has the same symbol
+ * @description Check if clicked card is not the same and match if has the same symbol
  */
+ 
  function checkCards() {
 	let cardItem1 = openedCards[0].getElementsByTagName('i')[0];
 	let cardItem2 = openedCards[1].getElementsByTagName('i')[0];
