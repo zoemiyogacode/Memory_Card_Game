@@ -112,3 +112,6 @@ h1 {
     pointer-events: none;
 }
 
+.clock {
+    height: 0.5em;
+}

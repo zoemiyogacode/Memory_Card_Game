@@ -1,5 +1,5 @@
 /*
- * Variables
+ * Global variables
  */
 
  let card = document.getElementsByClassName("card");
@@ -14,6 +14,9 @@
  let min = 0;
  let sec = 0;
  let interval;
+ let starRating = "3";
+ let starOne = document.querySelector("#starOne");
+ let starTwo = document.querySelector("#starTwo");
 
  /*
  * @description Start the game function
@@ -37,6 +40,7 @@ startGame();
  /*
  * @description Predefined Shuffle function from http://stackoverflow.com/a/2450976
  */
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -77,8 +81,10 @@ function displayCard() {
 
 function openCard() {
 	openedCards.push(this);	
-	if(openedCards.length === 2) {
+	if(openedCards.length === 1) {
 		moveCounter();
+	}
+	if(openedCards.length === 2) {
 		checkCards();
 	}
 }
@@ -87,13 +93,32 @@ function openCard() {
  * @description Move the counter func
  */
 
- function moveCounter() {
- 	moves++
+function moveCounter() {
+	moves++
  	movesTracker.innerHTML = moves;
  	if(moves === 1) {
  		startClock();
  	}
- }
+ 	checkMoves();
+}
+
+/*
+ * @description Start counting the time 
+ */
+
+function startClock() {
+ interval = setInterval(function() {
+ 	clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
+ 	sec++;
+ 	if(sec === 60) {
+ 		min++
+ 		sec = 0;
+ 	} else if(min === 60){
+ 		min = 0;
+ 		sec = 0;
+ 	} 
+ }, 1000);
+}
 
 /*
  * @description Check if clicked card is not the same and match if has the same symbol
@@ -108,6 +133,22 @@ function openCard() {
 	matched();
 	} else unmatched();
 }
+
+ /*
+ * @description Check num of moves and change the star rating
+ */
+
+ function checkMoves(num) {
+ 	if (moves > 0 && moves < 16) {
+ 		starRating = starRating;
+ 	} else if (moves >= 16 && moves <= 24) {
+ 		starOne.classList.remove("fa-star");
+ 		starRating = "2";
+ 	} else if (moves > 24) {
+ 		starTwo.classList.remove("fa-star");
+ 		starRating = "1";
+ 	}
+ }
 
 /*
  * @description Match the cards
@@ -133,7 +174,7 @@ function matched() {
  		openedCards[1].classList.remove('show', 'open');
  		openedCards = [];
  		unlock();
-	},600);
+	},500);
 }
 
 /*
@@ -160,20 +201,4 @@ function unlock() {
 }
  	
 
-/*
- * @description Start counting the time 
- */
 
-function startClock() {
- interval = setInterval(function() {
- 	clock.innerHTML = "in: " + min + "min " + sec + "sec";
- 	sec++;
- 	if(sec === 60) {
- 		min++
- 		sec = 0;
- 	} else if(min === 60){
- 		min = 0;
- 		sec = 0;
- 	} 
- }, 1000);
-}
