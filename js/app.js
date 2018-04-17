@@ -6,8 +6,6 @@
  let cards = [...card];
  let deck = document.querySelector(".deck");
  let shuffledCards = [];
- let click1 = [];
- let click2; = [];
  let openedCards = [];
  let moves = 0;
  let movesTracker = document.querySelector(".moves");
