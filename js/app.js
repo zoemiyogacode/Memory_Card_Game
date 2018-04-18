@@ -14,10 +14,17 @@
  let min = 0;
  let sec = 0;
  let interval;
+ let stars = document.getElementsByClassName("fa fa-star");
  let starRating = "3";
  let starOne = document.querySelector("#starOne");
  let starTwo = document.querySelector("#starTwo");
  const restartButton = document.querySelector(".restart")
+ let modal = document.getElementById("gzModal");
+ let scorePanel = document.querySelector(".score-panel");
+ let score = document.querySelector(".final-score");
+ const exitModal = document.getElementsByClassName("close")[0];
+// //close icon in modal
+//  let closeicon = document.querySelector(".close");
 
  /*
  * @description Start the game function
@@ -146,6 +153,10 @@ function matched() {
 	 openedCards[1].classList.remove('show', 'open');
 	 matchedCards.push(openedCards[0], openedCards[1]);
 	 openedCards = [];
+	 //check if the game is over (16 cards matched)
+	 if(matchedCards.length === 2) {
+	 	gameOver();
+	 }
 }
 
 /*
@@ -203,6 +214,34 @@ function startClock() {
 	}, 1000);
 }
 
+
+function gameOver() {
+	clearInterval(interval);
+	score = "Your time: " + clock.innerHTML + \n + "Your moves: " + movesTracker.innerHTML + \n 
+	displayModal();
+	startGame();
+}
+
+/*
+ * @description Modal functionality
+ */
+
+// display modal function
+function displayModal() {
+    modal.style.display = "block";
+}
+// exit modal when clicking [x]
+exitModal.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Close modal if the click is outside it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 /*
  * @description Listen for clicks on the restart button
  */
@@ -216,7 +255,6 @@ restartButton.addEventListener("click", restartGame);
 function restartGame() {
 	resetTimer();
 	resetScore();
-	// resetCards();
 	startGame();
  }
 
@@ -226,7 +264,7 @@ function restartGame() {
  
  // reset time
 function resetTimer() {
-	clock.innerHTML = "";
+	clock.innerHTML = "Your time: 0min 0sec";
 	clearInterval(interval);
 }
 
@@ -237,23 +275,3 @@ function resetScore() {
 	starOne.classList.add('fa-star');
 	starTwo.classList.add('fa-star');
 }
-
-// // reset cards
-// function resetCards() {
-// 	cards[i].classList.remove('match', 'locked', 'open', 'show');
-// }
-
-/*
- * @description Check if the user has matched all cards and if yes display modal
- */
- 
-function gameOver() {
-	if(matchedCards === 16) {
-    displayModal();
-    }
-}
-
-/*
- * @description Modal functionality
- */
-
