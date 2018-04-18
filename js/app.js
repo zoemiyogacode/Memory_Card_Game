@@ -103,24 +103,6 @@ function moveCounter() {
 }
 
 /*
- * @description Start counting the time 
- */
-
-function startClock() {
- interval = setInterval(function() {
- 	clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
- 	sec++;
- 	if(sec === 60) {
- 		min++
- 		sec = 0;
- 	} else if(min === 60){
- 		min = 0;
- 		sec = 0;
- 	} 
- }, 1000);
-}
-
-/*
  * @description Check if clicked card is not the same and match if has the same symbol
  */
 
@@ -198,6 +180,24 @@ function unlock() {
 			matchedCards[i].classList.add("locked");
 		}
 	});
+}
+
+/*
+ * @description Start counting the time 
+ */
+
+function startClock() {
+ interval = setInterval(function() {
+ 	clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
+ 	sec++;
+ 	if(sec === 60) {
+ 		min++
+ 		sec = 0;
+ 	} else if(min === 60){
+ 		min = 0;
+ 		sec = 0;
+ 	} 
+ }, 1000);
 }
  	
 
