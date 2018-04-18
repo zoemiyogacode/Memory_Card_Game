@@ -1,4 +1,4 @@
-
+/*
  * Global variables
  */
 
@@ -30,8 +30,10 @@ function startGame() {
 		deck.innerHTML = "";
 		shuffledCards.forEach(function(card) {
 			deck.appendChild(card);
-		})};
+			shuffledCards[i].classList.remove("show", "open", "match", "locked");
+		});
 	}
+}
 
  /*
  * @description Start the game
@@ -214,6 +216,7 @@ restartButton.addEventListener("click", restartGame);
 function restartGame() {
 	resetTimer();
 	resetScore();
+	// resetCards();
 	startGame();
  }
 
@@ -235,19 +238,22 @@ function resetScore() {
 	starTwo.classList.add('fa-star');
 }
 
+// // reset cards
+// function resetCards() {
+// 	cards[i].classList.remove('match', 'locked', 'open', 'show');
+// }
+
 /*
  * @description Check if the user has matched all cards and if yes display modal
  */
  
-// function gameOver() {
-// 	if(matchedCards === 16) {
-//     displayModal();
-//     restartGame();
-//     }
-// }
+function gameOver() {
+	if(matchedCards === 16) {
+    displayModal();
+    }
+}
 
 /*
  * @description Modal functionality
  */
 
- 
