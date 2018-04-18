@@ -1,4 +1,4 @@
-/*
+
  * Global variables
  */
 
@@ -17,20 +17,21 @@
  let starRating = "3";
  let starOne = document.querySelector("#starOne");
  let starTwo = document.querySelector("#starTwo");
+ const restartButton = document.querySelector(".restart")
 
  /*
  * @description Start the game function
  * @returns {array} Displays the cards randomly on the page
  */
 
- function startGame() { 
- 	shuffledCards = shuffle(cards);
- 	 for (let i = 0; i < cards.length; i++) {
- 	 	deck.innerHTML = "";
- 	 	shuffledCards.forEach(function(card) {
- 	 		deck.appendChild(card);
- 	 	})};
-}
+function startGame() { 
+	shuffledCards = shuffle(cards);
+	for (let i = 0; i < cards.length; i++) {
+		deck.innerHTML = "";
+		shuffledCards.forEach(function(card) {
+			deck.appendChild(card);
+		})};
+	}
 
  /*
  * @description Start the game
@@ -106,13 +107,13 @@ function moveCounter() {
  * @description Check if clicked card is not the same and match if has the same symbol
  */
 
- function checkCards() {
+function checkCards() {
 	let cardItem1 = openedCards[0].getElementsByTagName('i')[0];
 	let cardItem2 = openedCards[1].getElementsByTagName('i')[0];
 	let notSameCard = openedCards[0].getAttribute('id') !== openedCards[1].getAttribute('id');
 	let sameSymbol = cardItem1.getAttribute('class') === cardItem2.getAttribute('class');
 	if (notSameCard && sameSymbol) {
-	matched();
+		matched();
 	} else unmatched();
 }
 
@@ -120,11 +121,11 @@ function moveCounter() {
  * @description Check num of moves and change the star rating
  */
 
- function checkMoves(num) {
- 	if (moves > 0 && moves < 16) {
- 		starRating = starRating;
- 	} else if (moves >= 16 && moves <= 24) {
- 		starOne.classList.remove("fa-star");
+function checkMoves(num) {
+	if (moves > 0 && moves < 16) {
+		starRating = starRating;
+	} else if (moves >= 16 && moves <= 24) {
+		starOne.classList.remove("fa-star");
  		starRating = "2";
  	} else if (moves > 24) {
  		starTwo.classList.remove("fa-star");
@@ -149,8 +150,8 @@ function matched() {
  * @description Unmatch cards and flip them back again
  */
 
- function unmatched() {
- 	lock();
+function unmatched() {
+	lock();
  	setTimeout(function() {
  		openedCards[0].classList.remove('show', 'open');
  		openedCards[1].classList.remove('show', 'open');
@@ -163,9 +164,9 @@ function matched() {
  * @description Locking cards from responding to clicks
  */
 
- function lock() {
- 	Array.prototype.filter.call(cards, function(card) {
- 		card.classList.add('locked');
+function lock() {
+	Array.prototype.filter.call(cards, function(card) {
+		card.classList.add('locked');
     });
  }
 
@@ -187,18 +188,65 @@ function unlock() {
  */
 
 function startClock() {
- interval = setInterval(function() {
- 	clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
- 	sec++;
- 	if(sec === 60) {
- 		min++
- 		sec = 0;
- 	} else if(min === 60){
- 		min = 0;
- 		sec = 0;
- 	} 
- }, 1000);
+	interval = setInterval(function() {
+		clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
+		sec++;
+		if(sec === 60) {
+			min++
+			sec = 0;
+		} else if(min === 60){
+			min = 0;
+			sec = 0;
+		} 
+	}, 1000);
 }
- 	
 
+/*
+ * @description Listen for clicks on the restart button
+ */
 
+restartButton.addEventListener("click", restartGame);
+
+/*
+ * @description Restart game function
+ */
+ 
+function restartGame() {
+	resetTimer();
+	resetScore();
+	startGame();
+ }
+
+/*
+ * @description Reset time and score funcionality
+ */
+ 
+ // reset time
+function resetTimer() {
+	clock.innerHTML = "";
+	clearInterval(interval);
+}
+
+// reset star score
+function resetScore() {
+	moves = 0;
+	movesTracker.innerHTML = moves;
+	starOne.classList.add('fa-star');
+	starTwo.classList.add('fa-star');
+}
+
+/*
+ * @description Check if the user has matched all cards and if yes display modal
+ */
+ 
+// function gameOver() {
+// 	if(matchedCards === 16) {
+//     displayModal();
+//     restartGame();
+//     }
+// }
+
+/*
+ * @description Modal functionality
+ */
+ 
