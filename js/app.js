@@ -14,7 +14,7 @@
  let min = 0;
  let sec = 0;
  let interval;
- let stars = document.getElementsByClassName("fa fa-star");
+ let stars = document.querySelector(".stars");
  let starRating = "3";
  let starOne = document.querySelector("#starOne");
  let starTwo = document.querySelector("#starTwo");
@@ -155,7 +155,9 @@ function matched() {
 	 openedCards = [];
 	 //check if the game is over (16 cards matched)
 	 if(matchedCards.length === 2) {
-	 	gameOver();
+	 	setTimeout(function() {
+	 		gameOver();
+	 	},200);
 	 }
 }
 
@@ -214,10 +216,11 @@ function startClock() {
 	}, 1000);
 }
 
+let scoreSumUp = "Your time: " + clock.innerHTML + "\n" + "Your moves: " + movesTracker.innerHTML + "\n" + "Your score: " + stars.innerHTML;
 
 function gameOver() {
 	clearInterval(interval);
-	score = "Your time: " + clock.innerHTML + \n + "Your moves: " + movesTracker.innerHTML + \n 
+	score.innerHTML = scoreSumUp;
 	displayModal();
 	startGame();
 }
