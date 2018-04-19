@@ -5,7 +5,6 @@
  let card = document.getElementsByClassName("card");
  let cards = [...card];
  let deck = document.querySelector(".deck");
- let shuffledCards = [];
  let openedCards = [];
  let moves = 0;
  let movesTracker = document.querySelector(".moves");
@@ -32,12 +31,14 @@
  */
 
 function startGame() { 
-	shuffledCards = shuffle(cards);
+	resetTimer();
+	resetScore();
+	cards = shuffle(cards);
 	for (let i = 0; i < cards.length; i++) {
 		deck.innerHTML = "";
-		shuffledCards.forEach(function(card) {
+		cards.forEach(function(card) {
 			deck.appendChild(card);
-			shuffledCards[i].classList.remove("show", "open", "match", "locked");
+			cards[i].classList.remove("show", "open", "match", "locked");
 		});
 	}
 }
@@ -157,7 +158,7 @@ function matched() {
 	 if(matchedCards.length === 2) {
 	 	setTimeout(function() {
 	 		gameOver();
-	 	},200);
+	 	},300);
 	 }
 }
 
@@ -192,9 +193,6 @@ function lock() {
 function unlock() {
 	Array.prototype.filter.call(cards, function(card) {
 		card.classList.remove('locked');
-		for(var i = 0; i < matchedCards.length; i++){
-			matchedCards[i].classList.add("locked");
-		}
 	});
 }
 
@@ -216,13 +214,13 @@ function startClock() {
 	}, 1000);
 }
 
-let scoreSumUp = "Your time: " + clock.innerHTML + "\n" + "Your moves: " + movesTracker.innerHTML + "\n" + "Your score: " + stars.innerHTML;
+
 
 function gameOver() {
 	clearInterval(interval);
-	score.innerHTML = scoreSumUp;
 	displayModal();
 	startGame();
+	matchedCards = [];
 }
 
 /*
