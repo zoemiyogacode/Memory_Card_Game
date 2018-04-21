@@ -73,9 +73,9 @@ function shuffle(array) {
 
 for (let i = 0; i < cards.length; i++) {
 	card = cards[i];
+	card.addEventListener('click', firstClick);
 	card.addEventListener('click', displayCard);
 	card.addEventListener('click', openCard);
-	card.addEventListener('click', firstClick);
 }
 
 /*
@@ -85,6 +85,9 @@ for (let i = 0; i < cards.length; i++) {
 function displayCard() {
 	this.classList.toggle('open');
 	this.classList.toggle('show');
+	if (firstClicked === true) {
+		startTimer();
+	}
 }
 
  /*
@@ -95,8 +98,7 @@ function openCard() {
 	openedCards.push(this);	
 	if(openedCards.length === 1) {
 		moveCounter();
-	}
-	if(openedCards.length === 2) {
+	} else if(openedCards.length === 2) {
 		checkCards();
 	}
 }
