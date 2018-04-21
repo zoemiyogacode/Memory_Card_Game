@@ -73,7 +73,6 @@ function shuffle(array) {
 
 for (let i = 0; i < cards.length; i++) {
 	card = cards[i];
-	card.addEventListener('click', firstClick);
 	card.addEventListener('click', displayCard);
 	card.addEventListener('click', openCard);
 }
@@ -83,9 +82,6 @@ for (let i = 0; i < cards.length; i++) {
  */
 
 function displayCard() {
-	if (firstClicked === true) {
-		startTimer();
-	}
 	this.classList.toggle('open');
 	this.classList.toggle('show');
 }
@@ -103,10 +99,6 @@ function openCard() {
 	}
 }
 
-function firstClick() {
-	firstClicked = true;
-}
-
  /*
  * @description Move the counter func
  */
@@ -114,9 +106,9 @@ function firstClick() {
 function moveCounter() {
 	moves++
  	movesTracker.innerHTML = moves;
-	//if (moves === 1) {
-	    //startClock();
-//}
+	if (moves === 1) {
+	    startClock();
+}
  	checkMoves();
 }
 
