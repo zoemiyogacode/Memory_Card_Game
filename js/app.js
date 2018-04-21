@@ -114,9 +114,9 @@ function firstClick() {
 function moveCounter() {
 	moves++
  	movesTracker.innerHTML = moves;
-	if (moves === 1) {
-	    startClock();
-}
+	//if (moves === 1) {
+	    //startClock();
+//}
  	checkMoves();
 }
 
