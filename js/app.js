@@ -211,6 +211,7 @@ function startClock() {
 			sec = 0;
 		} 
 	}, 1000);
+	clearInterval(interval);
 }
 
 
