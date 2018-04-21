@@ -233,7 +233,7 @@ function displayModal() {
 // exit modal when clicking [x]
 exitModal.onclick = function() {
     modal.style.display = "none";
-	startGame();
+	restartGame();
 }
 
 // Close modal if the click is outside it
