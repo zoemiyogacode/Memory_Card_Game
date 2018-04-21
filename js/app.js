@@ -265,7 +265,9 @@ function restartGame() {
  
  // reset time
 function resetTimer() {
-	clock.innerHTML = "Your time: 0min 0sec";
+	min = 0;
+	sec = 0;
+	clock.innerHTML = "Your time: " + min + "min" + sec + "sec";
 	clearInterval(interval);
 }
 
