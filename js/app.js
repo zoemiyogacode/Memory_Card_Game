@@ -83,11 +83,11 @@ for (let i = 0; i < cards.length; i++) {
  */
 
 function displayCard() {
-	this.classList.toggle('open');
-	this.classList.toggle('show');
 	if (firstClicked === true) {
 		startTimer();
 	}
+	this.classList.toggle('open');
+	this.classList.toggle('show');
 }
 
  /*
