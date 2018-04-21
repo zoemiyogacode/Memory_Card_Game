@@ -32,7 +32,7 @@
 
 function startGame() { 
 	//resetTimer();
-	resetScore();
+	//resetScore();
 	cards = shuffle(cards);
 	for (let i = 0; i < cards.length; i++) {
 		deck.innerHTML = "";
