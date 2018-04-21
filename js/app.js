@@ -234,12 +234,14 @@ function displayModal() {
 // exit modal when clicking [x]
 exitModal.onclick = function() {
     modal.style.display = "none";
+	startGame();
 }
 
 // Close modal if the click is outside it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+	    startGame();
     }
 }
 
