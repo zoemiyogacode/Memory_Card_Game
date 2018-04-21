@@ -108,6 +108,7 @@ function moveCounter() {
  	movesTracker.innerHTML = moves;
 	if (moves === 1) {
 	    startClock();
+		clearInterval(interval);
 }
  	checkMoves();
 }
@@ -211,7 +212,6 @@ function startClock() {
 			sec = 0;
 		} 
 	}, 1000);
-	clearInterval(interval);
 }
 
 
