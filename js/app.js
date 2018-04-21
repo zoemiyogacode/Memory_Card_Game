@@ -6,7 +6,6 @@
  let cards = [...card];
  let deck = document.querySelector(".deck");
  let openedCards = [];
- let firstClicked = false;
  let moves = 0;
  let movesTracker = document.querySelector(".moves");
  let matchedCards = [];
@@ -240,7 +239,7 @@ exitModal.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-	    startGame();
+	    restartGame();
     }
 }
 
