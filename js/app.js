@@ -22,8 +22,7 @@
  let scorePanel = document.querySelector(".score-panel");
  let score = document.querySelector(".final-score");
  const exitModal = document.getElementsByClassName("close")[0];
-// //close icon in modal
-//  let closeicon = document.querySelector(".close");
+
 
  /*
  * @description Start the game function
@@ -269,7 +268,7 @@ function restartGame() {
 function resetTimer() {
 	min = 0;
 	sec = 0;
-	//clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
+	clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
 	clearInterval(interval);
 }
 
