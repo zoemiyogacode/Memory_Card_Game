@@ -94,7 +94,6 @@ function openCard() {
 	openedCards.push(this);	
 	if(openedCards.length === 1) {
 		moveCounter();
- 		startClock();
 	}
 	if(openedCards.length === 2) {
 		checkCards();
@@ -108,6 +107,9 @@ function openCard() {
 function moveCounter() {
 	moves++
  	movesTracker.innerHTML = moves;
+	if (moves === 1 {
+	    startClock();
+}
  	checkMoves();
 }
 
