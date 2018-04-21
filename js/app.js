@@ -6,6 +6,7 @@
  let cards = [...card];
  let deck = document.querySelector(".deck");
  let openedCards = [];
+ let firstClicked = false;
  let moves = 0;
  let movesTracker = document.querySelector(".moves");
  let matchedCards = [];
@@ -74,6 +75,7 @@ for (let i = 0; i < cards.length; i++) {
 	card = cards[i];
 	card.addEventListener('click', displayCard);
 	card.addEventListener('click', openCard);
+	card.addEventListener('click', firstClick);
 }
 
 /*
@@ -97,6 +99,10 @@ function openCard() {
 	if(openedCards.length === 2) {
 		checkCards();
 	}
+}
+
+function firstClick() {
+	firstClicked = true;
 }
 
  /*
