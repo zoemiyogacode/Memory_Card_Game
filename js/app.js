@@ -202,7 +202,7 @@ function unlock() {
 
 function startClock() {
 	interval = setInterval(function() {
-		clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
+		clock.innerHTML = "Your time: " + min + "min" + sec + "sec";
 		sec++;
 		if(sec === 60) {
 			min++
