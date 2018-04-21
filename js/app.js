@@ -269,7 +269,7 @@ function restartGame() {
 function resetTimer() {
 	min = 0;
 	sec = 0;
-	clock.innerHTML = "Your time: " + min + "min" + sec + "sec";
+	//clock.innerHTML = "Your time: " + min + "min" + sec + "sec";
 	clearInterval(interval);
 }
 
