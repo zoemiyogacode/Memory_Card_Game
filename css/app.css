@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/bg.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -40,7 +40,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: background: rgb(226,226,226); /* Old browsers */
+    background: rgb(226,226,226); /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 46%, rgba(219,219,219,1) 62%, rgba(219,219,219,1) 62%, rgba(254,254,254,1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, rgba(226,226,226,1) 0%,rgba(209,209,209,1) 46%,rgba(219,219,219,1) 62%,rgba(219,219,219,1) 62%,rgba(254,254,254,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, rgba(226,226,226,1) 0%,rgba(209,209,209,1) 46%,rgba(219,219,219,1) 62%,rgba(219,219,219,1) 62%,rgba(254,254,254,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -68,10 +68,40 @@ h1 {
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
+.deck .card.backpack.open {
+    background: url("../img/backpack.png");
+}
+
+.deck .card.tent.open {
+    background: url("../img/tent.png");
+}
+
+.deck .card.skull.open {
+    background: url("../img/skull.png");
+}
+
+.deck .card.compass.open {
+    background: url("../img/compass.png");
+}
+
+.deck .card.firelog.open {
+    background: url("../img/firelog.png");
+}
+
+.deck .card.bush.open {
+    background: url("../img/bush.png");
+}
+
+.deck .card.shoe.open {
+    background: url("../img/shoe.png");
+}
+
+.deck .card.cacti.open {
+    background: url("../img/cacti.png");
+}
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
     cursor: default;
 }
 

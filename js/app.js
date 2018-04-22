@@ -2,56 +2,55 @@
 /*
  * Global variables
  */
+let card = document.getElementsByClassName("card");
+let cards = [...card];
+let deck = document.querySelector(".deck");
+let openedCards = [];
+let firstClicked = false;
+let moves = 0;
+let movesTracker = document.querySelector(".moves");
+let matchedCards = [];
+let clock = document.querySelector(".clock");
+let min = 0;
+let sec = 0;
+let interval;
+let stars = document.querySelector(".stars");
+let starRating = "3";
+let starOne = document.querySelector("#starOne");
+let starTwo = document.querySelector("#starTwo");
+const restartButton = document.querySelector(".restart")
+let modal = document.getElementById("gzModal");
+let scorePanel = document.querySelector(".score-panel");
+let score = document.querySelector(".final-score");
+const exitModal = document.getElementsByClassName("close")[0];
 
- let card = document.getElementsByClassName("card");
- let cards = [...card];
- let deck = document.querySelector(".deck");
- let openedCards = [];
- let firstClicked = false;
- let moves = 0;
- let movesTracker = document.querySelector(".moves");
- let matchedCards = [];
- let clock = document.querySelector(".clock");
- let min = 0;
- let sec = 0;
- let interval;
- let stars = document.querySelector(".stars");
- let starRating = "3";
- let starOne = document.querySelector("#starOne");
- let starTwo = document.querySelector("#starTwo");
- const restartButton = document.querySelector(".restart")
- let modal = document.getElementById("gzModal");
- let scorePanel = document.querySelector(".score-panel");
- let score = document.querySelector(".final-score");
- const exitModal = document.getElementsByClassName("close")[0];
 
+/*
+* @description Start the game function
+* @returns {array} Displays the cards randomly on the page
+*/
 
- /*
- * @description Start the game function
- * @returns {array} Displays the cards randomly on the page
- */
-
-function startGame() { 
-	//resetTimer();
-	//resetScore();
-	cards = shuffle(cards);
-	for (let i = 0; i < cards.length; i++) {
-		deck.innerHTML = "";
-		cards.forEach(function(card) {
-			deck.appendChild(card);
-			cards[i].classList.remove("show", "open", "match", "locked");
-		});
-	}
+function startGame() {
+    //resetTimer();
+    //resetScore();
+    cards = shuffle(cards);
+    for (let i = 0; i < cards.length; i++) {
+        deck.innerHTML = "";
+        cards.forEach(function(card) {
+            deck.appendChild(card);
+            cards[i].classList.remove("show", "open", "match", "locked");
+        });
+    }
 }
 
- /*
- * @description Start the game
- */
+/*
+* @description Start the game
+*/
 startGame();
 
- /*
- * @description Predefined Shuffle function from http://stackoverflow.com/a/2450976
- */
+/*
+* @description Predefined Shuffle function from http://stackoverflow.com/a/2450976
+*/
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -67,15 +66,15 @@ function shuffle(array) {
     return array;
 }
 
- /*
- * Event listener Loop
- * @description Listens for clicks on the cards
- */
+/*
+* Event listener Loop
+* @description Listens for clicks on the cards
+*/
 
 for (let i = 0; i < cards.length; i++) {
-	card = cards[i];
-	card.addEventListener('click', displayCard);
-	card.addEventListener('click', openCard);
+    card = cards[i];
+    card.addEventListener('click', displayCard);
+    card.addEventListener('click', openCard);
 }
 
 /*
@@ -83,34 +82,34 @@ for (let i = 0; i < cards.length; i++) {
  */
 
 function displayCard() {
-	this.classList.toggle('open');
-	this.classList.toggle('show');
+    this.classList.toggle('open');
+    this.classList.toggle('show');
 }
 
- /*
- * @description Add card to opened cards, move the counter and check if the cards match
- */
+/*
+* @description Add card to opened cards, move the counter and check if the cards match
+*/
 
 function openCard() {
-	openedCards.push(this);	
-	if(openedCards.length === 1) {
-		moveCounter();
-	} else if(openedCards.length === 2) {
-		checkCards();
-	}
+    openedCards.push(this);
+    if(openedCards.length === 1) {
+        moveCounter();
+    } else if(openedCards.length === 2) {
+        checkCards();
+    }
 }
 
- /*
- * @description Move the counter func
- */
+/*
+* @description Move the counter func
+*/
 
 function moveCounter() {
-	moves++
- 	movesTracker.innerHTML = moves;
-	if (moves === 1) {
-	    startClock();
-}
- 	checkMoves();
+    moves++
+    movesTracker.innerHTML = moves;
+    if (moves === 1) {
+        startClock();
+    }
+    checkMoves();
 }
 
 /*
@@ -118,48 +117,48 @@ function moveCounter() {
  */
 
 function checkCards() {
-	let cardItem1 = openedCards[0].getElementsByTagName('i')[0];
-	let cardItem2 = openedCards[1].getElementsByTagName('i')[0];
-	let notSameCard = openedCards[0].getAttribute('id') !== openedCards[1].getAttribute('id');
-	let sameSymbol = cardItem1.getAttribute('class') === cardItem2.getAttribute('class');
-	if (notSameCard && sameSymbol) {
-		matched();
-	} else unmatched();
+    let cardItem1 = openedCards[0];
+    let cardItem2 = openedCards[1];
+    let notSameCard = cardItem1.getAttribute('id') !== cardItem2.getAttribute('id');
+    let sameSymbol = cardItem1.getAttribute('class') === cardItem2.getAttribute('class');
+    if (notSameCard && sameSymbol) {
+        matched();
+    } else unmatched();
 }
 
- /*
- * @description Check num of moves and change the star rating
- */
+/*
+* @description Check num of moves and change the star rating
+*/
 
 function checkMoves(num) {
-	if (moves > 0 && moves < 16) {
-		starRating = starRating;
-	} else if (moves >= 16 && moves <= 24) {
-		starOne.classList.remove("fa-star");
- 		starRating = "2";
- 	} else if (moves > 24) {
- 		starTwo.classList.remove("fa-star");
- 		starRating = "1";
- 	}
- }
+    if (moves > 0 && moves < 16) {
+        starRating = starRating;
+    } else if (moves >= 16 && moves <= 24) {
+        starOne.classList.remove("fa-star");
+        starRating = "2";
+    } else if (moves > 24) {
+        starTwo.classList.remove("fa-star");
+        starRating = "1";
+    }
+}
 
 /*
  * @description Match the cards
  */
 
 function matched() {
-	 openedCards[0].classList.add('match', 'locked');
-	 openedCards[1].classList.add('match', 'locked');
-	 openedCards[0].classList.remove('show', 'open');
-	 openedCards[1].classList.remove('show', 'open');
-	 matchedCards.push(openedCards[0], openedCards[1]);
-	 openedCards = [];
-	 //check if the game is over (16 cards matched)
-	 if(matchedCards.length === 2) {
-	 	setTimeout(function() {
-	 		gameOver();
-	 	},300);
-	 }
+    openedCards[0].classList.add('match', 'locked');
+    openedCards[1].classList.add('match', 'locked');
+    openedCards[0].classList.remove('show', 'open');
+    openedCards[1].classList.remove('show', 'open');
+    matchedCards.push(openedCards[0], openedCards[1]);
+    openedCards = [];
+    //check if the game is over (16 cards matched)
+    if(matchedCards.length === 2) {
+        setTimeout(function() {
+            gameOver();
+        },300);
+    }
 }
 
 /*
@@ -167,13 +166,13 @@ function matched() {
  */
 
 function unmatched() {
-	lock();
- 	setTimeout(function() {
- 		openedCards[0].classList.remove('show', 'open');
- 		openedCards[1].classList.remove('show', 'open');
- 		openedCards = [];
- 		unlock();
-	},500);
+    lock();
+    setTimeout(function() {
+        openedCards[0].classList.remove('show', 'open');
+        openedCards[1].classList.remove('show', 'open');
+        openedCards = [];
+        unlock();
+    },500);
 }
 
 /*
@@ -181,19 +180,19 @@ function unmatched() {
  */
 
 function lock() {
-	Array.prototype.filter.call(cards, function(card) {
-		card.classList.add('locked');
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.add('locked');
     });
- }
+}
 
 /*
  * @description Unlocking not matched cards
  */
 
 function unlock() {
-	Array.prototype.filter.call(cards, function(card) {
-		card.classList.remove('locked');
-	});
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.remove('locked');
+    });
 }
 
 /*
@@ -201,26 +200,26 @@ function unlock() {
  */
 
 function startClock() {
-	interval = setInterval(function() {
-		clock.innerHTML = "Your time: " + min + "min  " + sec + "sec";
-		sec++;
-		if(sec === 60) {
-			min++
-			sec = 0;
-		} else if(min === 60){
-			min = 0;
-			sec = 0;
-		} 
-	}, 1000);
+    interval = setInterval(function() {
+        clock.innerHTML = "Your time: " + min + "min  " + sec + "sec";
+        sec++;
+        if(sec === 60) {
+            min++
+            sec = 0;
+        } else if(min === 60){
+            min = 0;
+            sec = 0;
+        }
+    }, 1000);
 }
 
 
 
 function gameOver() {
-	clearInterval(interval);
-	displayModal();
-	startGame();
-	matchedCards = [];
+    clearInterval(interval);
+    displayModal();
+    startGame();
+    matchedCards = [];
 }
 
 /*
@@ -234,14 +233,14 @@ function displayModal() {
 // exit modal when clicking [x]
 exitModal.onclick = function() {
     modal.style.display = "none";
-	restartGame();
+    restartGame();
 }
 
 // Close modal if the click is outside it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-	    startGame();
+        startGame();
     }
 }
 
@@ -254,29 +253,29 @@ restartButton.addEventListener("click", restartGame);
 /*
  * @description Restart game function
  */
- 
+
 function restartGame() {
-	resetTimer();
-	resetScore();
-	startGame();
- }
+    resetTimer();
+    resetScore();
+    startGame();
+}
 
 /*
  * @description Reset time and score funcionality
  */
- 
- // reset time
+
+// reset time
 function resetTimer() {
-	min = 0;
-	sec = 0;
-	clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
-	clearInterval(interval);
+    min = 0;
+    sec = 0;
+    clock.innerHTML = "Your time: " + min + "min " + sec + "sec";
+    clearInterval(interval);
 }
 
 // reset star score
 function resetScore() {
-	moves = 0;
-	movesTracker.innerHTML = moves;
-	starOne.classList.add('fa-star');
-	starTwo.classList.add('fa-star');
+    moves = 0;
+    movesTracker.innerHTML = moves;
+    starOne.classList.add('fa-star');
+    starTwo.classList.add('fa-star');
 }
