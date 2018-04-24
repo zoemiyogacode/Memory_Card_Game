@@ -68,6 +68,9 @@ h1 {
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
+
+/*-------------Opened Cards bg---------------------*/
+
 .deck .card.backpack.open {
     background: url("../img/backpack.png");
 }
@@ -100,6 +103,42 @@ h1 {
     background: url("../img/cacti.png");
 }
 
+/*---------------Matched Cards bg-------------------*/
+
+.deck .card.backpack.card-face.match {
+    background: url("../img/backpack.png");
+}
+
+.deck .card.tent.card-face.match {
+    background: url("../img/tent.png");
+}
+
+.deck .card.skull.card-face.match {
+    background: url("../img/skull.png");
+}
+
+.deck .card.compass.card-face.match {
+    background: url("../img/compass.png");
+}
+
+.deck .card.firelog.card-face.match {
+    background: url("../img/firelog.png");
+}
+
+.deck .card.bush.match.card-face.match {
+    background: url("../img/bush.png");
+}
+
+.deck .card.shoe.card-face.match {
+    background: url("../img/shoe.png");
+}
+
+.deck .card.cacti.card-face.match {
+    background: url("../img/cacti.png");
+}
+
+/*----------------------------------*/
+
 .deck .card.open {
     transform: rotateY(0);
     cursor: default;
@@ -111,7 +150,6 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
     font-size: 33px;
 }
 

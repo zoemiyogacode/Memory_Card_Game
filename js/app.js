@@ -6,7 +6,6 @@ let card = document.getElementsByClassName("card");
 let cards = [...card];
 let deck = document.querySelector(".deck");
 let openedCards = [];
-let firstClicked = false;
 let moves = 0;
 let movesTracker = document.querySelector(".moves");
 let matchedCards = [];
@@ -18,7 +17,7 @@ let stars = document.querySelector(".stars");
 let starRating = "3";
 let starOne = document.querySelector("#starOne");
 let starTwo = document.querySelector("#starTwo");
-const restartButton = document.querySelector(".restart")
+const restartButton = document.querySelector(".restart");
 let modal = document.getElementById("gzModal");
 let scorePanel = document.querySelector(".score-panel");
 let score = document.querySelector(".final-score");
@@ -53,7 +52,7 @@ startGame();
 */
 
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -84,6 +83,7 @@ for (let i = 0; i < cards.length; i++) {
 function displayCard() {
     this.classList.toggle('open');
     this.classList.toggle('show');
+    this.classList.toggle('card-face')
 }
 
 /*
@@ -104,7 +104,7 @@ function openCard() {
 */
 
 function moveCounter() {
-    moves++
+    moves++;
     movesTracker.innerHTML = moves;
     if (moves === 1) {
         startClock();
@@ -117,10 +117,12 @@ function moveCounter() {
  */
 
 function checkCards() {
-    let cardItem1 = openedCards[0];
-    let cardItem2 = openedCards[1];
-    let notSameCard = cardItem1.getAttribute('id') !== cardItem2.getAttribute('id');
-    let sameSymbol = cardItem1.getAttribute('class') === cardItem2.getAttribute('class');
+    let card1Id= openedCards[0].getAttribute('id');
+    let card2Id = openedCards[1].getAttribute('id');
+    let card1Class = openedCards[0].getAttribute('class');
+    let card2Class = openedCards[1].getAttribute('class');
+    let notSameCard = card1Id !== card2Id;
+    let sameSymbol = card1Class === card2Class;
     if (notSameCard && sameSymbol) {
         matched();
     } else unmatched();
@@ -130,10 +132,8 @@ function checkCards() {
 * @description Check num of moves and change the star rating
 */
 
-function checkMoves(num) {
-    if (moves > 0 && moves < 16) {
-        starRating = starRating;
-    } else if (moves >= 16 && moves <= 24) {
+function checkMoves() {
+    if (moves >= 16 && moves <= 24) {
         starOne.classList.remove("fa-star");
         starRating = "2";
     } else if (moves > 24) {
@@ -154,7 +154,7 @@ function matched() {
     matchedCards.push(openedCards[0], openedCards[1]);
     openedCards = [];
     //check if the game is over (16 cards matched)
-    if(matchedCards.length === 2) {
+    if(matchedCards.length === 16) {
         setTimeout(function() {
             gameOver();
         },300);
@@ -168,8 +168,8 @@ function matched() {
 function unmatched() {
     lock();
     setTimeout(function() {
-        openedCards[0].classList.remove('show', 'open');
-        openedCards[1].classList.remove('show', 'open');
+        openedCards[0].classList.remove('show', 'open', 'card-face');
+        openedCards[1].classList.remove('show', 'open', 'card-face');
         openedCards = [];
         unlock();
     },500);
@@ -204,7 +204,7 @@ function startClock() {
         clock.innerHTML = "Your time: " + min + "min  " + sec + "sec";
         sec++;
         if(sec === 60) {
-            min++
+            min++;
             sec = 0;
         } else if(min === 60){
             min = 0;
@@ -234,15 +234,15 @@ function displayModal() {
 exitModal.onclick = function() {
     modal.style.display = "none";
     restartGame();
-}
+};
 
 // Close modal if the click is outside it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target === modal) {
         modal.style.display = "none";
         startGame();
     }
-}
+};
 
 /*
  * @description Listen for clicks on the restart button
@@ -261,7 +261,7 @@ function restartGame() {
 }
 
 /*
- * @description Reset time and score funcionality
+ * @description Reset time and score functionality
  */
 
 // reset time
