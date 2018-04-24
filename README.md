@@ -1,4 +1,4 @@
-# Memory Card Game by Natalia @Zoe Miklis
+# Backpacking Memory Card Game by Natalia @Zoe Miklis
 Project for Udacity Front-End Development Nanodegree Scholarship.
 Memory Card Game JS
 
@@ -17,10 +17,6 @@ Time for the BACKPACKING JOURNEY! Collect all necesarry equipment for backpackin
 # When is `GAME OVER`
 The game will display congratulation window with a summary of your time, moves and score when you'll succefully match all 8 pairs.
 You will be offered to play the game again so if you want to have more fun click `refresh` button!
-
-## Optimisation
-
-Photos and images were minified using `Grunt`.
 
 ## Browser Support
 - Chrome (latest 2)
