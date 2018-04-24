@@ -1,4 +1,4 @@
-# Backpacking Memory Card Game by Natalia @Zoe Miklis
+# Backpacker Memory Card Game by Natalia @Zoe Miklis
 Project for Udacity Front-End Development Nanodegree Scholarship.
 Memory Card Game JS
 
