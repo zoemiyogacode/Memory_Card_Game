@@ -107,4 +107,16 @@
     }
 
     /*----------------------------------*/
+       /* Modal Content/Box */
+    .modal-content {
+        background: url("../img/bgModal.png") fixed;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        display: block;
+        list-style: none;
+        text-align: center;
+        font-size: 12px;
+    }
 }
