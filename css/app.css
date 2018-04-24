@@ -33,6 +33,10 @@ h1 {
     font-weight: 300;
 }
 
+li {
+    display: inline-block;
+}
+
 /*
  * Styles for the deck of cards
  */
@@ -70,6 +74,8 @@ h1 {
 }
 
 /*-------------Opened Cards bg---------------------*/
+/*Displays the cards' artworks when opened*/
+/*Any hints how to do it without repetitive code appreciated*/
 
 .deck .card.backpack.open {
     background: url("../img/backpack.png");
@@ -104,6 +110,7 @@ h1 {
 }
 
 /*---------------Matched Cards bg-------------------*/
+/*Applying the card-faces (artworks) to the matched cards*/
 
 .deck .card.backpack.card-face.match {
     background: url("../img/backpack.png");
@@ -175,6 +182,10 @@ h1 {
     display: inline-block;
 }
 
+ul.final-score li {
+    display: inline-block;
+    list-style: none;
+}
 .score-panel .restart {
     float: right;
     cursor: pointer;
@@ -190,26 +201,27 @@ h1 {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
     display: block;
+    list-style: none;
 }
 
 /* The Close Button */

@@ -19,8 +19,6 @@ let starOne = document.querySelector("#starOne");
 let starTwo = document.querySelector("#starTwo");
 const restartButton = document.querySelector(".restart");
 let modal = document.getElementById("gzModal");
-let scorePanel = document.querySelector(".score-panel");
-let score = document.querySelector(".final-score");
 const exitModal = document.getElementsByClassName("close")[0];
 
 
@@ -216,10 +214,17 @@ function startClock() {
 
 
 function gameOver() {
+    addScore();
     clearInterval(interval);
     displayModal();
     startGame();
     matchedCards = [];
+}
+
+//add score to modal
+function addScore() {
+    let finalScore = document.getElementById("final-score");
+    finalScore.innerHTML = clock.innerHTML + "<br>" + "Your moves: " + moves + "<br>" + "Your rating:  " + stars.innerHTML;
 }
 
 /*
@@ -231,16 +236,16 @@ function displayModal() {
     modal.style.display = "block";
 }
 // exit modal when clicking [x]
-exitModal.onclick = function() {
+exitModal.onclick = () => {
     modal.style.display = "none";
     restartGame();
 };
 
 // Close modal if the click is outside it
-window.onclick = function(event) {
+window.onclick = (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
-        startGame();
+        restartGame();
     }
 };
 
