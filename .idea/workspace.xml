@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f728072-edec-4b0b-baf1-e6c5fe4e50d4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bgModal.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bgModal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-    </list>
+    <list default="true" id="5f728072-edec-4b0b-baf1-e6c5fe4e50d4" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -95,8 +91,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="665" />
-    <option name="y" value="7" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="1253" />
     <option name="height" value="1030" />
   </component>
@@ -169,12 +165,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524343582943</updated>
       <workItem from="1524343584332" duration="3827000" />
-      <workItem from="1524419579318" duration="25498000" />
+      <workItem from="1524419579318" duration="26421000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29325000" />
+    <option name="totallyTimeSpent" value="30248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
