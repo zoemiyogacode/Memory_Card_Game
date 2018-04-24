@@ -152,7 +152,7 @@ function matched() {
     matchedCards.push(openedCards[0], openedCards[1]);
     openedCards = [];
     //check if the game is over (16 cards matched)
-    if(matchedCards.length === 2) {
+    if(matchedCards.length === 16) {
         setTimeout(function() {
             gameOver();
         },300);

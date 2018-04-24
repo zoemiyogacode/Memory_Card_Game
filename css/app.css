@@ -219,7 +219,7 @@ ul.final-score li {
 
 /* Modal Content/Box */
 .modal-content {
-    background: url("../img/bgModal.png");
+    background: url("../img/bgModal.png") fixed;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
