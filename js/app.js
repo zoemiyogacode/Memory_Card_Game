@@ -211,7 +211,9 @@ function startClock() {
     }, 1000);
 }
 
-
+/*
+* @description Game over - add summary to modal, clear the clock and display modal
+*/
 
 function gameOver() {
     addScore();
@@ -221,18 +223,26 @@ function gameOver() {
     matchedCards = [];
 }
 
-//add score to modal
+/*
+* @description Adds the score to the modal
+*/
 function addScore() {
     let finalScore = document.getElementById("final-score");
     finalScore.innerHTML = clock.innerHTML + "<br>" + "Your moves: " + moves + "<br>" + "Your rating:  " + stars.innerHTML;
 }
 
+/*
+* @description Restart game from modal screen and close the modal
+*/
+
 let restartFromModal = document.querySelector(".click-here");
+
 function restartClose() {
     restartGame();
     modal.style.display = "none";
 }
 
+// Listen for clicks on refresh button in modal
 restartFromModal.addEventListener('click', restartClose);
 
 /*
