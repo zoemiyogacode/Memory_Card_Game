@@ -199,6 +199,10 @@ ul.final-score li {
     height: 0.5em;
 }
 
+.click-here {
+    cursor: pointer;
+}
+
 /* The Modal (background) */
 .modal {
     display: none;

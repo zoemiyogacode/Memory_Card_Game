@@ -152,7 +152,7 @@ function matched() {
     matchedCards.push(openedCards[0], openedCards[1]);
     openedCards = [];
     //check if the game is over (16 cards matched)
-    if(matchedCards.length === 16) {
+    if(matchedCards.length === 2) {
         setTimeout(function() {
             gameOver();
         },300);
@@ -226,6 +226,14 @@ function addScore() {
     let finalScore = document.getElementById("final-score");
     finalScore.innerHTML = clock.innerHTML + "<br>" + "Your moves: " + moves + "<br>" + "Your rating:  " + stars.innerHTML;
 }
+
+let restartFromModal = document.querySelector(".click-here");
+function restartClose() {
+    restartGame();
+    modal.style.display = "none";
+}
+
+restartFromModal.addEventListener('click', restartClose);
 
 /*
  * @description Modal functionality
