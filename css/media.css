@@ -1,0 +1,110 @@
+@media only screen and (max-width: 600px) {
+    /*
+     * Styles for the deck of cards
+     */
+
+    .deck {
+        width: 330px;
+        min-height: 340px;
+        background: rgb(226,226,226); /* Old browsers */
+        background: -moz-linear-gradient(-45deg, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 46%, rgba(219,219,219,1) 62%, rgba(219,219,219,1) 62%, rgba(254,254,254,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(226,226,226,1) 0%,rgba(209,209,209,1) 46%,rgba(219,219,219,1) 62%,rgba(219,219,219,1) 62%,rgba(254,254,254,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(226,226,226,1) 0%,rgba(209,209,209,1) 46%,rgba(219,219,219,1) 62%,rgba(219,219,219,1) 62%,rgba(254,254,254,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        padding: 16px;
+        border-radius: 5px;
+        box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 3em;
+    }
+
+    .deck .card {
+        height: 62.5px;
+        width: 62.5px;
+        background: #2e3d49;
+        font-size: 0;
+        color: #ffffff;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    }
+
+    /*-------------Opened Cards bg---------------------*/
+    /*Displays the cards' artworks when opened*/
+    /*Any hints how to do it without repetitive code appreciated*/
+
+    .deck .card.backpack.open {
+        background: url("../img/backpack1.png");
+    }
+
+    .deck .card.tent.open {
+        background: url("../img/tent1.png");
+    }
+
+    .deck .card.skull.open {
+        background: url("../img/skull1.png");
+    }
+
+    .deck .card.compass.open {
+        background: url("../img/compass1.png");
+    }
+
+    .deck .card.firelog.open {
+        background: url("../img/firelog1.png");
+    }
+
+    .deck .card.bush.open {
+        background: url("../img/bush1.png");
+    }
+
+    .deck .card.shoe.open {
+        background: url("../img/shoe1.png");
+    }
+
+    .deck .card.cacti.open {
+        background: url("../img/cacti1.png");
+    }
+
+    /*---------------Matched Cards bg-------------------*/
+    /*Applying the card-faces (artworks) to the matched cards*/
+
+    .deck .card.backpack.card-face.match {
+        background: url("../img/backpack1.png");
+    }
+
+    .deck .card.tent.card-face.match {
+        background: url("../img/tent1.png");
+    }
+
+    .deck .card.skull.card-face.match {
+        background: url("../img/skull1.png");
+    }
+
+    .deck .card.compass.card-face.match {
+        background: url("../img/compass1.png");
+    }
+
+    .deck .card.firelog.card-face.match {
+        background: url("../img/firelog1.png");
+    }
+
+    .deck .card.bush.match.card-face.match {
+        background: url("../img/bush1.png");
+    }
+
+    .deck .card.shoe.card-face.match {
+        background: url("../img/shoe1.png");
+    }
+
+    .deck .card.cacti.card-face.match {
+        background: url("../img/cacti1.png");
+    }
+
+    /*----------------------------------*/
+}
