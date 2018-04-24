@@ -18,7 +18,7 @@ body {
 
 body {
     background: #ffffff url('../img/bg.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -29,7 +29,7 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Jua', sans-serif;
     font-weight: 300;
 }
 
@@ -219,13 +219,14 @@ ul.final-score li {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background: url("../img/bgModal.png");
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
     display: block;
     list-style: none;
+    text-align: center;
 }
 
 /* The Close Button */
